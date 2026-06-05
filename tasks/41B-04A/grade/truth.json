@@ -1,18 +1,108 @@
 {
   "saguaro_id": "41B-04A",
-  "ground_truth_mapping": {
-    "3": "1",
-    "1": "2",
-    "2": "3"
-  },
-  "valid_2023_arms": [
-    "1",
-    "2",
-    "3"
+  "scored_fields": [
+    "saguaro_id",
+    "direction",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "note"
   ],
-  "valid_2026_arms": [
-    "1",
-    "2",
-    "3"
-  ]
+  "tolerances": {
+    "direction": 1.0,
+    "A": 0.011,
+    "B": 0.011,
+    "C": 0.011,
+    "D": 0.011,
+    "E": 0.011
+  },
+  "truth_rows": [
+    {
+      "saguaro_id": "41B-04A",
+      "year": 2023,
+      "arm": "1",
+      "direction": 0,
+      "A": 2.33,
+      "B": 1,
+      "C": 3.36,
+      "D": 1.06,
+      "E": 0.6,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-04A",
+      "year": 2023,
+      "arm": "2",
+      "direction": 128,
+      "A": 2.33,
+      "B": 0.98,
+      "C": 3.14,
+      "D": 0.95,
+      "E": 0.55,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-04A",
+      "year": 2023,
+      "arm": "3",
+      "direction": 170,
+      "A": 2.37,
+      "B": 0.98,
+      "C": 2.95,
+      "D": 0.96,
+      "E": 0.5,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-04A",
+      "year": 2026,
+      "arm": "1",
+      "direction": 350,
+      "A": 2.36,
+      "B": 0.991,
+      "C": 3.48,
+      "D": 1.03,
+      "E": 0.55,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-04A",
+      "year": 2026,
+      "arm": "2",
+      "direction": 131,
+      "A": 2.29,
+      "B": 0.88,
+      "C": 3.32,
+      "D": 0.893,
+      "E": 0.55,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-04A",
+      "year": 2026,
+      "arm": "3",
+      "direction": 184,
+      "A": 2.35,
+      "B": 0.904,
+      "C": 3.07,
+      "D": 0.9,
+      "E": 0.52,
+      "note": ""
+    }
+  ],
+  "_opaque_sheet_map": {
+    "sheet_A.png": {
+      "true_year": 2026,
+      "source_file": "Pl-41B_2026_1-10__p06.png",
+      "redaction_status": "hand"
+    },
+    "sheet_B.png": {
+      "true_year": 2023,
+      "source_file": "Pl-41B_2023_1-10A__p06.png",
+      "redaction_status": "hand"
+    }
+  },
+  "_opaque_photo_map": {}
 }

@@ -1,32 +1,73 @@
-# Saguaro 41B-09
+# Saguaro 41B-09 — full curation
 
-Plot coordinates: easting 525356, northing 3563273
-Plant height: 4.83 m (2023) → 5.25 m (2026)
-Stem diameter at 1 m: 0.45 m (2023) → 0.5 m (2026)
+Two volunteers measured this saguaro on plot 41B: one in 2023, one in 2026. Each produced a handwritten field-form recording the arm measurements. A human curator then matches arms across years (same physical arm = same canonical arm number) and digitizes the cleaned table.
 
-## 2023 arms (1 rows recorded 2023-11-01)
+Your job is to produce that cleaned table.
 
-```
-  Arm   1  direction  160°  A=2.59  B=1.01  C=2.82  D=0.99  E=0.3
-```
+## Inputs
 
-## 2026 arms (1 rows recorded 2026-04-01)
+`/workspace/datasheets/` — 2 hand-redacted volunteer field forms,
+    with **opaque filenames** (`sheet_A.png`, `sheet_B.png`). One sheet covers
+    each year; read the date header to determine which is 2023 vs 2026. The
+    curator's marginal canonical-arm renumberings have been blacked out, so
+    the only arm numbers visible are the volunteer's paper-arm numbers — which
+    DIFFER between years (the volunteer re-counted from "north-most then
+    clockwise" each time).
 
-```
-  Arm   1  direction  158°  A=2.54  B=1  C=3.05  D=0.99  E=0.55
-```
-
-## Photos available in /workspace/photos/
-
-  2023: (no photos available)
-
-  2026: (no photos available)
-
-## Datasheets
-
-- /workspace/datasheets/2023.png — hand-redacted volunteer field form
-- /workspace/datasheets/2026.png — hand-redacted volunteer field form
+`/workspace/photos/` — empty (no field photos available for this saguaro).
 
 ## Output
 
-Write your mapping to `/workspace/submission.json`. Keys: every 2026 arm id `['1']`. Values: a 2023 arm id from `['1']` or the literal `"new"`. The mapping must be a function — no two 2026 arms may map to the same non-`"new"` 2023 arm.
+Write your cleaned table to `/workspace/submission.json` as a JSON list of
+row objects. Each row has these fields:
+
+```
+saguaro_id   string  — always "41B-09" for this task
+year         int     — 2023 or 2026
+arm          string  — canonical arm number ("1", "2", ...)
+direction    number  — compass bearing from main stem, degrees (0–360)
+A            number  — height where arm emerges from main stem, meters
+B            number  — datum-mark height near A, meters
+C            number  — arm-tip height, meters
+D            number  — datum-mark height near C, meters
+E            number  — horizontal distance from main stem to arm tip, meters
+note         string  — recorder note (use "" if none)
+```
+
+Example row:
+
+```json
+{"saguaro_id": "41B-09", "year": 2023, "arm": "1",
+ "direction": 360, "A": 1.89, "B": 0.98, "C": 2.04,
+ "D": 0.98, "E": 0.2, "note": ""}
+```
+
+## Canonical arm numbering
+
+Canonical arm numbers identify the SAME physical arm across years. Arm `"3"`
+in 2023 and arm `"3"` in 2026 must be the same physical arm. Arms that emerged
+after the 2023 survey get canonical numbers continuing from the 2023 count
+(if 2023 has 5 arms and 2026 has 8, the 3 new 2026-only arms become canonical
+6, 7, 8 — pick the assignment that's consistent with arm direction so a
+re-survey would give the same numbering).
+
+The volunteer's paper-arm numbers on the sheets do NOT match the canonical
+numbering. You must derive the canonical numbering yourself by matching arms
+across years using direction, A/E measurements, and photos.
+
+## Row schedule (target)
+
+- **2023**: 1 arm(s), canonical numbers `['1']`
+- **2026**: 1 arm(s), canonical numbers `['1']`
+
+## Scoring
+
+Per-cell match against ground truth, keyed by `(saguaro_id, year, arm)`:
+
+- `direction`: ±1°
+- `A`, `B`, `C`, `D`, `E`: ±0.011 m
+- `note`: word-set Jaccard ≥0.5 OR any-of-acceptable list match (empty=empty)
+- `saguaro_id`: normalized string equality
+
+Missing rows score 0 across all their cells. Extra (hallucinated) rows incur
+a 5% penalty each, capped at 50%. Reward is in [0, 1].

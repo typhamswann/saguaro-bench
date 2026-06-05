@@ -2,17 +2,17 @@ schema_version = "1.1"
 artifacts = []
 
 [task]
-name = "saguarobench/41B-05"
-description = "Match 2026 arm numbers to 2023 arm numbers (or 'new') for saguaro 41B-05 on plot 41B. Difficulty: hard."
+name = "saguarobench-curation/41B-05"
+description = "Curate the full cross-year arm-measurement table for saguaro 41B-05 on plot 41B. Difficulty: hard."
 authors = ["Ty Pham-Swann"]
-keywords = ["multimodal", "vlm", "saguaro", "arm-matching", "saguaro-bench"]
+keywords = ["multimodal", "vlm", "saguaro", "curation", "digitization", "saguaro-bench"]
 
 [metadata]
-ext_id = "saguarobench-41B-05"
+ext_id = "saguarobench-curation-41B-05"
 task_id = "41B-05"
-display_title = "Match arms across years for 41B-05"
-display_description = "Match 2026 arm numbers to 2023 arm numbers (or 'new') for saguaro 41B-05. Difficulty: hard."
-category = "multimodal-matching"
+display_title = "Curate 41B-05"
+display_description = "Read hand-redacted volunteer field forms + field photos for saguaro 41B-05 (2023 and 2026), match arms across years, produce the cleaned canonical-arm table. Difficulty: hard."
+category = "multimodal-curation"
 language = "english"
 repository_url = "https://github.com/typhamswann/saguaro-bench"
 plot = "41B"
@@ -20,8 +20,10 @@ split = "train"
 difficulty = "hard"
 n_arms_2023 = 7
 n_arms_2026 = 7
-n_photos_2023 = 4
-n_photos_2026 = 4
+n_truth_rows_scored = 14
+n_truth_rows_excluded = 0
+n_notes_with_override = 0
+n_photos = 8
 redaction_status_2023 = "hand"
 redaction_status_2026 = "hand"
 redaction_status = "hand"

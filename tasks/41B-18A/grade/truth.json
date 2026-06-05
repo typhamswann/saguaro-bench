@@ -1,26 +1,213 @@
 {
   "saguaro_id": "41B-18A",
-  "ground_truth_mapping": {
-    "1": "1",
-    "2": "2",
-    "4": "3",
-    "5": "4",
-    "6": "5",
-    "3": "new"
-  },
-  "valid_2023_arms": [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5"
+  "scored_fields": [
+    "saguaro_id",
+    "direction",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "note"
   ],
-  "valid_2026_arms": [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6"
-  ]
+  "tolerances": {
+    "direction": 1.0,
+    "A": 0.011,
+    "B": 0.011,
+    "C": 0.011,
+    "D": 0.011,
+    "E": 0.011
+  },
+  "truth_rows": [
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2023,
+      "arm": "1",
+      "direction": 348,
+      "A": 2.73,
+      "B": 1,
+      "C": 3.55,
+      "D": 0.93,
+      "E": 0.65,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2023,
+      "arm": "2",
+      "direction": 140,
+      "A": 2.32,
+      "B": 1.03,
+      "C": 3.49,
+      "D": 1.04,
+      "E": 0.9,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2023,
+      "arm": "3",
+      "direction": 193,
+      "A": 2.54,
+      "B": 1.03,
+      "C": 4.05,
+      "D": 1.09,
+      "E": 0.65,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2023,
+      "arm": "4",
+      "direction": 250,
+      "A": 2.27,
+      "B": 0.95,
+      "C": 4.36,
+      "D": 1.12,
+      "E": 0.9,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2023,
+      "arm": "5",
+      "direction": 310,
+      "A": 2.16,
+      "B": 0.97,
+      "C": 4.32,
+      "D": 1.04,
+      "E": 0.8,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2026,
+      "arm": "1",
+      "direction": 5,
+      "A": 2.71,
+      "B": 0.99,
+      "C": 3.74,
+      "D": 0.995,
+      "E": 0.7,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2026,
+      "arm": "2",
+      "direction": 152,
+      "A": 2.3,
+      "B": 1.057,
+      "C": 3.7,
+      "D": 1.08,
+      "E": 0.95,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2026,
+      "arm": "3",
+      "direction": 185,
+      "A": 2.53,
+      "B": 1.053,
+      "C": 4.27,
+      "D": 1.125,
+      "E": 0.7,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2026,
+      "arm": "4",
+      "direction": 230,
+      "A": 2.31,
+      "B": 1.035,
+      "C": 4.58,
+      "D": 1.185,
+      "E": 0.9,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2026,
+      "arm": "5",
+      "direction": 310,
+      "A": 2.15,
+      "B": 1.003,
+      "C": 4.53,
+      "D": 1.067,
+      "E": 0.9,
+      "note": ""
+    },
+    {
+      "saguaro_id": "41B-18A",
+      "year": 2026,
+      "arm": "6",
+      "direction": 160,
+      "A": 3.44,
+      "B": 1.045,
+      "C": 3.51,
+      "D": 1.045,
+      "E": 0.03,
+      "note": [
+        "nubbin tennis ball",
+        "nubbin - tennis ball",
+        "tennis ball"
+      ]
+    }
+  ],
+  "_opaque_sheet_map": {
+    "sheet_A.png": {
+      "true_year": 2023,
+      "source_file": "Pl-41B_2023_11-22__p15.png",
+      "redaction_status": "hand"
+    },
+    "sheet_B.png": {
+      "true_year": 2026,
+      "source_file": "Pl-41B_2026_10A-22__p17.png",
+      "redaction_status": "hand"
+    }
+  },
+  "_opaque_photo_map": {
+    "photo_001.jpg": {
+      "true_year": 2023,
+      "source_file": "41B-18A_2023_photo_4.jpg"
+    },
+    "photo_002.jpg": {
+      "true_year": 2026,
+      "source_file": "41B-18A_2026_photo_3.jpg"
+    },
+    "photo_003.jpg": {
+      "true_year": 2023,
+      "source_file": "41B-18A_2023_photo_1.jpg"
+    },
+    "photo_004.jpg": {
+      "true_year": 2026,
+      "source_file": "41B-18A_2026_photo_4.jpg"
+    },
+    "photo_005.jpg": {
+      "true_year": 2023,
+      "source_file": "41B-18A_2023_photo_3.jpg"
+    },
+    "photo_006.jpg": {
+      "true_year": 2026,
+      "source_file": "41B-18A_2026_photo_6.jpg"
+    },
+    "photo_007.jpg": {
+      "true_year": 2026,
+      "source_file": "41B-18A_2026_photo_2.jpg"
+    },
+    "photo_008.jpg": {
+      "true_year": 2026,
+      "source_file": "41B-18A_2026_photo_1.jpg"
+    },
+    "photo_009.jpg": {
+      "true_year": 2023,
+      "source_file": "41B-18A_2023_photo_2.jpg"
+    },
+    "photo_010.jpg": {
+      "true_year": 2026,
+      "source_file": "41B-18A_2026_photo_5.jpg"
+    }
+  }
 }

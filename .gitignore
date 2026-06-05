@@ -20,3 +20,6 @@ build/
 **/logs/agent/
 **/logs/artifacts/
 /workspace/
+
+# OpenRouter harness run output
+/runs/

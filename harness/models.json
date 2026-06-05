@@ -1,0 +1,45 @@
+{
+  "_comment": [
+    "OpenRouter model registry for SaguaroBench. Tag is the short name used",
+    "in CLI args + result filenames. `slug` is the OpenRouter routing slug.",
+    "`provider` (optional) pins precision / quantization via OpenRouter's",
+    "provider routing — matches the WanderBench config used to score the",
+    "same six models on that benchmark, so apples-to-apples comparisons are",
+    "possible.",
+    "",
+    "Verify slug names against https://openrouter.ai/models before running.",
+    "Pricing changes; cost-caps in run.py are a backstop, not a budget."
+  ],
+  "models": {
+    "gemini35_flash": {
+      "slug": "google/gemini-3.5-flash",
+      "provider": null,
+      "notes": "Vision-native. Cheapest of the six on per-token basis."
+    },
+    "qwen37_plus": {
+      "slug": "qwen/qwen3.7-plus",
+      "provider": null,
+      "notes": "Vision-capable. No quantization pin — let OpenRouter pick best provider."
+    },
+    "qwen35_397b": {
+      "slug": "qwen/qwen3.5-397b-a17b",
+      "provider": {"quantizations": ["fp8"]},
+      "notes": "MoE 397B-A17B. Pinned fp8 to match WanderBench run config."
+    },
+    "glm5v_turbo": {
+      "slug": "z-ai/glm-5v-turbo",
+      "provider": {"quantizations": ["fp8"]},
+      "notes": "GLM-5V Turbo. Vision-first. fp8 pin."
+    },
+    "kimi_k26": {
+      "slug": "moonshotai/kimi-k2.6",
+      "provider": {"quantizations": ["fp8"]},
+      "notes": "Kimi K2.6. fp8 pin."
+    },
+    "gemma4_26b": {
+      "slug": "google/gemma-4-26b-a4b",
+      "provider": null,
+      "notes": "Gemma 4 26B-A4B. VERIFY exact OpenRouter slug — Gemma family naming changes between releases."
+    }
+  }
+}

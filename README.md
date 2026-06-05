@@ -75,6 +75,8 @@ non-`"new"` 2023 arm.
 
 ## Quickstart
 
+### Path A — Harbor / Pier (canonical)
+
 Any [Harbor](https://www.harborframework.com/)-compatible runtime works.
 Build the base image once (it's just `python:3.11-slim` + `jq`), then run:
 
@@ -86,6 +88,26 @@ harbor run -p tasks --agent <agent> --model <model>
 # or, using pier (DeepSWE's runner):
 pier run -p tasks --agent claude-code --model anthropic/claude-opus-4-7
 ```
+
+### Path B — OpenRouter harness (six models pre-wired)
+
+For quick iteration across arbitrary OpenRouter models — no Docker
+required at runtime. See `harness/README.md` for full docs.
+
+```bash
+export OPENROUTER_API_KEY=sk-or-v1-...
+python harness/run.py --models all --max-turns 14 --cost-cap 10
+```
+
+The harness ships with six models pre-configured in
+`harness/models.json` (Gemini 3.5 Flash, Qwen 3.7 Plus,
+Qwen 3.5-397B-A17B, GLM-5V Turbo, Kimi K2.6, Gemma 4 26B-A4B) — the
+same set used in the WanderBench OpenRouter run, with matching
+quantization pins, so cross-benchmark comparisons are apples-to-apples.
+
+Results land at `runs/<timestamp>/<model_tag>.json` with per-task
+`exact_mapping_reward`, `arm_pair_f1`, cost in USD, served provider,
+and the list of images the agent chose to look at.
 
 Each task image is `FROM saguaro-bench-base:1.0` and bakes in its own
 assets + ground truth. The verifier emits `exact_mapping_reward ∈ {0.0,
@@ -194,6 +216,12 @@ saguaro-bench/
 │   └── lib/
 │       ├── brief.py      build_brief — renders brief.md from a record
 │       └── score.py      Canonical scorer (copied verbatim per task)
+├── harness/
+│   ├── run.py            OpenRouter driver: model loop + per-task scoring
+│   ├── openrouter.py     Stdlib-only chat-completions client with cost tracking
+│   ├── tools.py          list_dir / read_text / view_image / write_submission
+│   ├── models.json       Six pre-wired OpenRouter models
+│   └── README.md
 └── tasks/
     ├── INDEX.json        Summary across all tasks
     └── <saguaro_id>/     One per saguaro (25 total)
